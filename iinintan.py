@@ -17,6 +17,6 @@ ax.set_ylabel("")
 ax.set_ylabel("x")
 ax.tick_params(axis='y', labelsize=20)
 ax.tick_xticklabels(ax.get_xticklabels(), rotation=30, ha='right')
-ax.tick_params(axiz'x', labelsize=15)
+ax.tick_params(axis'x', labelsize=15)
 
 st.phplot(fig)
