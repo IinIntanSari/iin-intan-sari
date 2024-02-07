@@ -11,7 +11,7 @@ with c1:
   st.write('=>: ')
 with c2:
   satuan = st.selectbox(
-    'Satuan'
+    'Satuan',
     ('C', 'F', 'R', 'K'),key='k1')
 
 st.write(x,' ',satuan,' = ',' ')
