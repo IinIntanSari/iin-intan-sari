@@ -2,17 +2,32 @@ import streamlit as st
 
 # Header
 st.header('Intan :sparkles:')
-st.subheader('plot')
 
-c1, c2 = st.columns(2)
+# Subheader
+st.subheader('Kalkulator')
 
+# Membuat tiga kolom
+c1, c2, c3 = st.columns(3)
+
+# Kolom pertama
 with c1:
-  x = st.number_input('suhu ',value=100)
-  st.write('=>: ')
+  num1 = st.number_input('Masukkan angka pertama', step=1)
+ 
 with c2:
-  satuan = st.selectbox(
-    'Satuan',
-    ('C', 'F', 'R', 'K'),key='k1')
+  # pilih operasi
+  operation = st.selectbox('pilih operasi', ('+', '-', 'x', '/'))
 
-st.write(x,' ',satuan,' = ',' ')
-st.caption('copyright * Iin Intan Insari 2023')
+# Kolom ketiga
+with c3:
+  num2 = st.number_input('Masukkan angka kedua', step=1)
+
+def calculate(num1, num2, operation):
+  if operation == '+':
+    result = num1 + num2
+  elif operation == '-':
+    result = num1 - num2
+  elif operation == 'x':
+     result = num1 * num2
+  lif operation == '/':
+
+
