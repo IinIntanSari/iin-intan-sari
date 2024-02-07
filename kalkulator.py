@@ -28,6 +28,16 @@ def calculate(num1, num2, operation):
     result = num1 - num2
   elif operation == 'x':
      result = num1 * num2
-  lif operation == '/':
+  elif operation == '/':
+    if num2 != 0: # Menghindari pembagian dengan nol
+      result = num1 / num2
+    else:
+      result = "Error: Pembagian dengan nol"
+      return result
+
+result = calculate(num1, num2, operation)
+st.write('Hasil:' result)
+
+st.caption('copyright © Iin Intan Insari 2024')
 
 
