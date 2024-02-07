@@ -36,7 +36,7 @@ def calculate(num1, num2, operation):
       return result
 
 result = calculate(num1, num2, operation)
-st.write('Hasil:' result)
+st.write('Hasil:', result)
 
 st.caption('copyright © Iin Intan Insari 2024')
 
