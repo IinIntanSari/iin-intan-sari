@@ -17,6 +17,10 @@ u = np.sin(t)
 # Calculating the values for f(x) = 9x^2 + 14x - 9.
 f_x = 9 * t**2 + 14 * t - 9
 
+# Computing the integral using the trapezoidal rule.
+integral_sin = np.trapz(u, t)
+integral_fx = np.trapz(f_x, t)
+
 # Creating the plot.
 fig, ax = plt.subplots(figsize=(16, 8))
 
@@ -29,13 +33,15 @@ ax.plot(t, f_x, label='9x^2 + 14x - 9', color='r')
 ax.set_ylabel("y")
 ax.set_xlabel("t")
 ax.tick_params(axis='y', labelsize=20)
-
-# Since we're directly manipulating the tick labels, it's better to adjust the ticks than to set labels directly.
-# This ensures that the labels match the data.
 ax.tick_params(axis='x', labelsize=15)
 plt.xticks(rotation=30)  # Rotates the x-axis tick labels to make them more readable.
 
 plt.grid(color='green', linestyle='-.', linewidth=.5)
 plt.legend()
 st.pyplot(fig)
+
+# Displaying the results of the integrals.
+st.write(f'Integral of sin(t) over the range: {integral_sin:.2f}')
+st.write(f'Integral of 9x^2 + 14x - 9 over the range: {integral_fx:.2f}')
+
 
