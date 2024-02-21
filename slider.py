@@ -25,12 +25,7 @@ v = f(t)
 # Compute integral using trapezoidal rule specifically over the integral range
 t_integral = np.linspace(integral_range[0]*np.pi, integral_range[1]*np.pi, 100)
 v_integral = f(t_integral)
-integral_selected_range = np.trapz(v_integral, t_integral)
-
-# Compute the total integral over the full range (0 to 2π)
-t_full = np.linspace(0, 2*np.pi, 1000)
-v_full = f(t_full)
-integral_full_range = np.trapz(v_full, t_full)
+integral = np.trapz(v_integral, t_integral)
 
 # Plot for sin(yt) with shaded integral range
 fig1, ax1 = plt.subplots(figsize=(8, 4))
@@ -44,14 +39,16 @@ st.pyplot(fig1)
 
 # Plot for f(t) and highlight the integral area
 fig2, ax2 = plt.subplots(figsize=(8, 4))
-ax2.plot(t, v, label='f(t) = 9t^2 + 9t - 14', color='r')
+ax2.plot(t, v, label=f'f(t) = 9t^2 + 9t - 14', color='r')
 ax2.fill_between(t_integral, 0, v_integral, alpha=0.2, color='r', label='Integral area')
+# Add annotation for the integral value
+ax2.annotate(f'Integral: {integral:.2f}', xy=(0.5*(integral_range[0]+integral_range[1])*np.pi, np.max(v_integral)/2), textcoords='data')
 ax2.set_ylabel("")
 ax2.set_xlabel("t")
 plt.grid(color='green', linestyle='-.', linewidth=.5)
 plt.legend()
 st.pyplot(fig2)
 
-# Display the calculated integral values
-st.write(f'Integral over selected range (using trapezoidal rule): {integral_selected_range}')
-st.write(f'Total integral over full range (0 to 2π): {integral_full_range}')
+# Display the calculated integral value
+st.write(f'Integral (using trapezoidal rule over the selected range): {integral}')
+
