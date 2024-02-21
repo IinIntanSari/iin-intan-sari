@@ -2,46 +2,44 @@ import streamlit as st
 import numpy as np
 import matplotlib.pyplot as plt
 
-# Slider for selecting the range for t.
+# Selecting the range with a slider.
 x = st.slider('Pilih rentang', 0.0, 2.0, (0.2, 0.5))
-st.write('Nilai x:', x)
+st.write('nilai x:', x)
 
-# Slider for a fixed value y (not directly used in plotting f(x) or sin(t)).
+# Another slider, not used in the plotting of f(x) or sin(t).
 y = st.slider('Set nilai', 0.0, 100.0, 25.0)
-st.write('Nilai y:', y)
+st.write('nilai y:', y)
 
-# Generating the values for t and the sine wave.
+# Generating values for t.
 t = np.linspace(x[0]*np.pi, x[1]*np.pi, 100)
+# Sine function.
 u = np.sin(t)
 
-# Calculating the values for f(x) = 9x^2 + 14x - 9.
-f_x = 9 * t**2 + 14 * t - 9
+# New function f(x) = 9x^2 + 9x - 14.
+f_x = 9 * t**2 + 9 * t - 14
 
-# Computing the integral using the trapezoidal rule.
-integral_sin = np.trapz(u, t)
-integral_fx = np.trapz(f_x, t)
-
-# Creating the plot.
+# Plot setup.
 fig, ax = plt.subplots(figsize=(16, 8))
 
-# Plotting the sine wave.
+# Plotting sin(t).
 ax.plot(t, u, label='sin(t)', color='b')
 
-# Plotting the function f(x) = 9x^2 + 14x - 9.
-ax.plot(t, f_x, label='9x^2 + 14x - 9', color='r')
+# Plotting f(x) = 9x^2 + 9x - 14.
+ax.plot(t, f_x, label='9x^2 + 9x - 14', color='r')
 
+# Plot adjustments.
 ax.set_ylabel("y")
 ax.set_xlabel("t")
 ax.tick_params(axis='y', labelsize=20)
+# Correcting the method to set x-tick labels.
+plt.xticks(rotation=30, ha='right')
 ax.tick_params(axis='x', labelsize=15)
-plt.xticks(rotation=30)  # Rotates the x-axis tick labels to make them more readable.
-
 plt.grid(color='green', linestyle='-.', linewidth=.5)
 plt.legend()
+
+# Calculating the trapezoidal integral of f(x).
+integral_fx = np.trapz(f_x, t)
+# Displaying the integral result.
+st.write(f"Integral trapesium dari f(x) = 9x^2 + 9x - 14 dari {x[0]*np.pi:.2f} hingga {x[1]*np.pi:.2f} adalah {integral_fx:.2f}")
+
 st.pyplot(fig)
-
-# Displaying the results of the integrals.
-st.write(f'Integral of sin(t) over the range: {integral_sin:.2f}')
-st.write(f'Integral of 9x^2 + 14x - 9 over the range: {integral_fx:.2f}')
-
-
