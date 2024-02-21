@@ -52,7 +52,7 @@ plt.legend()  # Show legend for fig2
 st.pyplot(fig1)
 st.pyplot(fig2)
 
-st.write(f'Integral (dengan aturan trapesium) dari sin(t): {integral_u}')
-st.write(f'Integral (dengan aturan trapesium) dari sin(t): {integral_v}')
-st.write(f'Integral (dengan aturan trapesium) dari sin(t) dalam rentang yang dipilih: {integration_range}: {integral_u}')
-st.write(f'Integral (dengan aturan trapesium) dari sin(t) dalam rentang yang dipilih:: {integration_range}: {integral_v}')
+st.write(f'Integral (aturan trapesium) dari sin(t): {integral_u}')
+st.write(f'Integral (aturan trapesium) dari sin(t): {integral_v}')
+st.write(f'Integral (aturan trapesium) dari sin(t) dalam rentang yang dipilih: {integration_range}: {integral_u}')
+st.write(f'Integral (aturan trapesium) dari sin(t) dalam rentang yang dipilih:: {integration_range}: {integral_v}')
