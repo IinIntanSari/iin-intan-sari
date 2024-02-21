@@ -52,7 +52,6 @@ plt.grid(color='green', linestyle='-.', linewidth=.5)
 plt.legend()
 st.pyplot(fig2)
 
-# Display the calculated integral value
+# Display the calculated integral values
 st.write(f'Integral over selected range (using trapezoidal rule): {integral_selected_range}')
 st.write(f'Total integral over full range (0 to 2π): {integral_full_range}')
-
